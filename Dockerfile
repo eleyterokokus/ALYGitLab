@@ -1,20 +1,15 @@
-# Используем базовый образ Python
-FROM python3.9-slim
+# Используем базовый образ с Jupyter
+FROM jupyter/datascience-notebook:latest
+
+# Устанавливаем дополнительные зависимости, если необходимо
+RUN pip install matplotlib seaborn
 
 # Устанавливаем рабочую директорию
-WORKDIR usrsrcapp
+WORKDIR /home/jovyan/work
 
-# Копируем файлы зависимостей
-COPY requirements.txt .
+# Копируем ваши Jupyter Notebook в контейнер
+COPY EDA.ipynb .
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+# Создаем папку для сохранения графиков
+RUN mkdir -p /home/jovyan/work/plots
 
-# Копируем весь код приложения
-COPY . .
-
-# Открываем порт, если необходимо
-#EXPOSE 5000
-
-# Определяем команду для запуска приложения
-CMD [python, app.py]
