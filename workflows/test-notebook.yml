@@ -1,0 +1,30 @@
+name: Test EDA Notebook
+
+on:
+  push:
+    branches:
+      - main  # Запускать при пуше в главную ветку
+  pull_request:
+    branches:
+      - main  # Запускать при создании PR в главную ветку
+
+jobs:
+  test-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install jupyter nbmake matplotlib seaborn
+
+      - name: Run Jupyter Notebook tests
+        run: |
+          nbmake EDA.ipynb  # Запускаем тестирование ноутбука
