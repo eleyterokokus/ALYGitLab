@@ -1,0 +1,32 @@
+name: Convert Notebooks
+
+on:
+  push:
+    branches:
+      - main  # Запускать при пуше в главную ветку
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install jupyter quarto
+
+      - name: Run conversion scripts
+        run: |
+          chmod +x script/convert-jupyter-py.sh
+          chmod +x script/convert-jupyter-quarto.sh
+          chmod +x script/convert-quarto-html.sh
+          ./script/convert-jupyter-py.sh
+          ./script/convert-jupyter-quarto.sh
+          ./script/convert-quarto-html.sh

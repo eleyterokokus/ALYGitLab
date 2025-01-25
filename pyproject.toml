@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "credit_default_model"  # имя проект
+version = "0.1.0"            #  версия проекта
+description = "A credit default model training"
+authors = [{ name = "Ovchar Evgeny", email = "eleyterokokus@gmail.com" }]
+license = { file = "MIT License" }  # лицензия
+dependencies = [
+    "pandas",
+    "matplotlib",
+    "seaborn"
+]
+
+# Дополнительные метаданные (опционально)
+readme = "README.md"  # Укажите путь к файлу README
+keywords = ["EDA", "data analysis", "visualization"]  # Ключевые слова для поиска

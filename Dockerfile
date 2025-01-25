@@ -1,15 +1,13 @@
-# Используем базовый образ с Jupyter
-FROM jupyter/datascience-notebook:latest
+FROM python:3.12-slim
 
-# Устанавливаем дополнительные зависимости, если необходимо
-RUN pip install matplotlib seaborn
+# Копирование файлов проекта
+COPY . /app
 
-# Устанавливаем рабочую директорию
-WORKDIR /home/jovyan/work
+# Установка директории проекта
+WORKDIR /app
 
-# Копируем ваши Jupyter Notebook в контейнер
-COPY EDA.ipynb .
+# Установка зависимостей
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Создаем папку для сохранения графиков
-RUN mkdir -p /home/jovyan/work/plots
-
+# Запуск Python скрипта
+CMD ["python", "src/clf.py"]

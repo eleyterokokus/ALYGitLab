@@ -1,0 +1,31 @@
+# Игнорирование виртуальных окружений
+venv/
+.venv/
+
+# Игнорирование выходных данных и артефактов
+public/
+artifacts/
+model/
+quarto/
+
+# Игнорирование кэша Python
+__pycache__/
+
+# Директории и файлы для дистрибуции / упаковки
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Логи установщиков
+pip-log.txt
+pip-delete-this-directory.txt

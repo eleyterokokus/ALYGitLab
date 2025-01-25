@@ -28,3 +28,9 @@ jobs:
       - name: Run Jupyter Notebook tests
         run: |
           nbmake EDA.ipynb  # Запускаем тестирование ноутбука
+
+      - name: Upload plots as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: plots
+          path: plots/  # Укажите путь к папке с графиками
