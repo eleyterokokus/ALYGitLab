@@ -7,7 +7,7 @@ name = "credit_default_model"  # имя проект
 version = "0.1.0"            #  версия проекта
 description = "A credit default model training"
 authors = [{ name = "Ovchar Evgeny", email = "eleyterokokus@gmail.com" }]
-license = { file = "MIT License" }  # лицензия
+license = { text = "MIT License" }  # лицензия
 dependencies = [
     "pandas",
     "matplotlib",
