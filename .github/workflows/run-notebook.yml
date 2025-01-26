@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Используйте актуальную версию
 
       - name: Build Docker image
         run: |
@@ -21,4 +21,3 @@ jobs:
         run: |
           docker run --rm -v "${{ github.workspace }}:/home/jovyan/work" eda-notebook \
           jupyter nbconvert --to notebook --execute EDA.ipynb --output-dir=/home/jovyan/work/plots --output=EDA_output.ipynb
-
